@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-12-18 22:29:43
-  from 'C:\xampp1\htdocs\mvcproject\app\templates\login.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2019-12-18 21:02:49
+  from 'C:\xampp1\htdocs\mvcproject\app\templates\editcontact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5dfa9a471dada6_10990813',
+  'unifunc' => 'content_5dfa85e95efa35_58586716',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '83c86237da34933f99a0cb5e8b5bbb72072c8331' => 
+    'd31c1afc1b39116eecf1f7fe86baff9eea4a766a' => 
     array (
-      0 => 'C:\\xampp1\\htdocs\\mvcproject\\app\\templates\\login.tpl',
-      1 => 1576704580,
+      0 => 'C:\\xampp1\\htdocs\\mvcproject\\app\\templates\\editcontact.tpl',
+      1 => 1576699241,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dfa9a471dada6_10990813 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<html>
+function content_5dfa85e95efa35_58586716 (Smarty_Internal_Template $_smarty_tpl) {
+?><html>
 <head>
 
     <!-- Latest compiled and minified CSS -->
@@ -43,25 +42,33 @@ function content_5dfa9a471dada6_10990813 (Smarty_Internal_Template $_smarty_tpl)
 <div class="container">
     <div class="card mt-5">
         <div class="card-header">
-            <h2>login </h2>
+            <h2>Update person</h2>
         </div>
         <div class="card-body">
+            <?php echo '<?php ';?>
+if(!empty($message)): <?php echo '?>';?>
 
             <div class="alert alert-success">
-                status:<?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+                <?php echo '<?=';?>
+ $message; <?php echo '?>';?>
 
             </div>
-            <form action="http://mvcproject.test/public/access/login" method="post">
+            <?php echo '<?php ';?>
+endif; <?php echo '?>';?>
+
+            <form action="http://mvcproject.test/public/access/editcontactfinal" method="post">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="username" class="form-control">
+                    <input value="<?php echo $_smarty_tpl->tpl_vars['n']->value;?>
+" type="text" name="name" id="name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="number">Password</label>
-                    <input type="password" name="password" class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['p']->value;?>
+" name="number" id="number" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-info">submit</button>
+                    <button type="submit" class="btn btn-info">Update person</button>
                 </div>
             </form>
         </div>

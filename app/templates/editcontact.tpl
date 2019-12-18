@@ -1,4 +1,3 @@
-
 <html>
 <head>
 
@@ -18,24 +17,25 @@
 <div class="container">
     <div class="card mt-5">
         <div class="card-header">
-            <h2>login </h2>
+            <h2>Update person</h2>
         </div>
         <div class="card-body">
-
+            <?php if(!empty($message)): ?>
             <div class="alert alert-success">
-                status:{$error}
+                <?= $message; ?>
             </div>
-            <form action="http://mvcproject.test/public/access/login" method="post">
+            <?php endif; ?>
+            <form action="http://mvcproject.test/public/access/editcontactfinal" method="post">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="username" class="form-control">
+                    <input value="{$n}" type="text" name="name" id="name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="number">Password</label>
-                    <input type="password" name="password" class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" value="{$p}" name="number" id="number" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-info">submit</button>
+                    <button type="submit" class="btn btn-info">Update person</button>
                 </div>
             </form>
         </div>

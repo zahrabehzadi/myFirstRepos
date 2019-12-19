@@ -186,4 +186,26 @@ class access
         $smarty->display('contactlist.tpl');
     }
 
+
+    /**
+     *
+     */
+    public function search()
+    {
+
+        $smarty = "";
+        include(__DIR__ . '/../smartyheader.php');
+
+        $_SESSION['s'] = $_GET['search_name'];
+        require_once(__DIR__ . '/../models/user.php');
+        $object1 = new modell\search();
+        $result3 = $object1->search1();
+
+
+        $smarty->assign("datares", $result3);
+        $smarty->display('searchresult.tpl');
+
+    }
+
+
 }

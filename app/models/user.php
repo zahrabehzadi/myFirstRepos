@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+
 use PDO;
 
 class user
@@ -38,7 +39,8 @@ class user
 
 class contactlist
 {
-    public function show(){
+    public function show()
+    {
 
         try {
 
@@ -50,7 +52,7 @@ class contactlist
 //error array
             print_r($e . errorInfo());
         }
-        $prepared = $myconnection->prepare('select * from contactlist where userid= '.$_SESSION["id1"]);
+        $prepared = $myconnection->prepare('select * from contactlist where userid= ' . $_SESSION["id1"]);
         $prepared->execute();
         $result = $prepared->fetchAll();
         return $result;
@@ -58,6 +60,7 @@ class contactlist
     }
 
 }
+
 class addcontact
 {
 
@@ -78,15 +81,17 @@ class addcontact
             echo $e . getMessage();
 //error array
             print_r($e . errorInfo());
-        }$prepared = $myconnection->prepare("insert into contactlist (name,phonenumber,userid) values
-                                                     ('$name','$mobile','".$_SESSION["id1"]."') ");
-        $result=$prepared->execute();
+        }
+        $prepared = $myconnection->prepare("insert into contactlist (name,phonenumber,userid) values
+                                                     ('$name','$mobile','" . $_SESSION["id1"] . "') ");
+        $result = $prepared->execute();
         return $result;
 
     }
 
 
 }
+
 class editcontact
 {
 
@@ -96,7 +101,7 @@ class editcontact
      * @param $pass
      * @return mixed
      */
-    public function edit($name,$mobile)
+    public function edit($name, $mobile)
     {
 
         try {
@@ -109,16 +114,18 @@ class editcontact
 //error array
             print_r($e . errorInfo());
         }
-        $prepared = $myconnection->prepare('UPDATE contactlist SET name=?,phonenumber=? WHERE contactid='.$_SESSION['id2']);
-        $bind=array($name,$mobile);
+        $prepared = $myconnection->prepare('UPDATE contactlist SET name=?,phonenumber=? WHERE contactid=' . $_SESSION['id2']);
+        $bind = array($name, $mobile);
         $result = $prepared->execute($bind);
         return $result;
 
     }
 }
+
 class uniqshow
 {
-    public function ushow($id){
+    public function ushow($id)
+    {
 
         try {
 
@@ -130,22 +137,20 @@ class uniqshow
 //error array
             print_r($e . errorInfo());
         }
-        $prepared = $myconnection->prepare('select * from contactlist where contactid='.$id);
+        $prepared = $myconnection->prepare('select * from contactlist where contactid=' . $id);
         $prepared->execute();
         $result = $prepared->fetchAll();
         return $result;
 
     }
-
-
-
 
 
 }
 
 class delete
 {
-    public function delete($id3){
+    public function delete($id3)
+    {
 
         try {
 
@@ -157,7 +162,7 @@ class delete
 //error array
             print_r($e . errorInfo());
         }
-        $prepared = $myconnection->prepare('DELETE FROM contactlist WHERE contactid='.$id3);
+        $prepared = $myconnection->prepare('DELETE FROM contactlist WHERE contactid=' . $id3);
         $prepared->execute();
         $result = $prepared->fetchAll();
         return $result;
@@ -165,4 +170,36 @@ class delete
     }
 
 }
+
+class search
+{
+    /**
+     * @return array
+     */
+    public function search1()
+    {
+
+        try {
+
+            $myconnection = new PDO("mysql:host=localhost;dbname=mvcproject", "root", "");
+
+        } catch (PDOException $e) {
+//error text info
+            echo $e . getMessage();
+//error array
+            print_r($e . errorInfo());
+        }
+
+
+        $keyword = $_SESSION['s'];
+        $sql = "SELECT * FROM `contactlist` WHERE `name` LIKE ? and  userid=" . $_SESSION['id1'];
+        $q = $myconnection->prepare($sql);
+        $q->execute(array("%$keyword%"));
+        $result = $q->fetchAll();
+        return $result;
+    }
+
+}
+
+
 

@@ -1,0 +1,102 @@
+<style>
+#top-header1{
+
+}
+#alink{
+	color:#fff;
+
+}
+#alink:hover{
+	color:#003366;
+}
+#awsome{
+	margin-top:3px;
+	margin-left:1px;
+	font-size:12px;
+	float:right;
+	
+}
+#awsome2{
+	font-size:40px;
+	float:right;
+	color: gray;
+}
+#awsome3{
+	font-size:30px;
+	float:right;
+	color: blue;
+}
+#mynav{
+font-family:B Yekan;
+font-size:13px;
+float:right;
+direction:rtl;
+position: absolute;
+right: 3.3%;
+left: 3.3%;
+background-color:#3399ff;
+z-index:100;
+}
+li{
+	margin-left:13px;
+}
+#logo
+{
+	float:right;
+	margin-top:20px;
+	margin-right:55px
+
+}
+#logotext
+{
+	font-size:17px;
+	float:right;
+	font-family:b yekan;
+	color:#3399ff;
+	margin-top:50px;
+	margin-right:5px;
+	
+	
+}
+#slidepic{
+	
+   z-index=1;
+   top:51px;
+   left:1%;
+   width:98%;
+}
+#underpic
+{
+	top:100px;
+	margin-bottom:20px;
+	
+}
+
+#spanunderpic{
+	
+float:right;
+font-family:b yekan;
+margin-top:11px;
+font-size:14px;
+}
+
+#navsearch{
+
+float:right;
+top:200px;	
+		
+}
+#mywarning{
+	padding-top:15px;
+	background-color:#cce6ff;
+	height:20%;
+	position:relative;
+    top:95px;
+	font-family:b yekan;
+	color:gray;
+	left:4%;
+	font-size:15px;
+	direction:rtl;
+	
+}
+</style>

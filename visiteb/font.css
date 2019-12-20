@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+  font-family: 'bmitra';
+  src:url(../font/BMitra.ttf)
+  url(../font/BMitra.woff)
+  url(../font/BMitra.eot);
+  font-style:normal;
+  font-weight:normal;
+}
+@font-face {
+  font-family: 'bnazanin';
+  src:url(../font/BNazanin.eot)  
+       url(../font/BNazanin.woff)
+	   url(../font/BNazanin.ttf); 
+  font-style:normal;
+  font-weight:normal;
+}
+@font-face {
+  font-family: 'bhoma';
+  src:url(../fonts/BHoma.eot)format('eot'),  
+       url(../fonts/BHoma.woff) format('woff'),
+       url(../fonts/BHoma.ttf) format('truetype');  
+  font-style:normal;
+  font-weight:normal;
+}
+@font-face {
+  font-family: 'byekan';
+  src:url(../fonts/BYekan.eot)format('eot'),  
+       url(../fonts/BYekan.woff) format('woff'),
+       url(../fonts/BYekan.ttf) format('truetype');  
+  font-style:normal;
+  font-weight:normal;
+}

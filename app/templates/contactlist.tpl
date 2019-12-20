@@ -6,14 +6,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title></title>
-
+<style>
+    .warning{
+        border-color: red;
+    }
+</style>
 </head>
 
 
 <nav class="navbar navbar-dark bg-primary">
     <a style="color: white;font-size:2em" class="navbar-brand">Contact list</a>
-    <form action="http://mvcproject.test/public/access/search" id="target" class="form-inline">
-        <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search" id="search_name">
+    <form action="http://mvcproject.test/public/access/search"  id="target" class="form-inline"  >
+        <input class="form-control mr-sm-2" type="search" name="name2" placeholder="Search" aria-label="Search" id="search_name">
         <button style="color:white;border-color: white" class="btn btn-outline-success my-2 my-sm-0" name="submit"  type="submit">Search</button>
     </form>
 </nav>
@@ -67,16 +71,16 @@
         </div>
         <div class="card-body">
 
-            <div class="alert alert-success">
-            </div>
-            <form action="http://mvcproject.test/public/access/addcontact" method="post">
+
+            <form action="http://mvcproject.test/public/access/addcontact" method="post"
+                  onSubmit="return check();">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input id="txt_name" type="text" name="name1" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="number">phone number</label>
-                    <input type="text" name="phonenumber" class="form-control">
+                    <input id="mobile" type="text" name="phonenumber" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-info">add contact</button>
@@ -88,8 +92,47 @@
 
 </html>
 {literal}
-
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/cycle.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        function check()
+        {
+
+            var mobile = $("input[name=phonenumber]").val();
+            var name=$("input[name=name1]").val();
+          
+
+            if(name==''){error=1;$("input[name=name1]").addClass('warning');return false}
+            else {
+                $("input[name=name1]").removeClass('warning');
+            }
+
+
+
+            var regexp2 = /^0{1}9{1}[0-9]{9}$/i;
+
+
+            if (regexp2.test(mobile) != false) {
+                $("input[name=phonenumber]").removeClass('warning');
+            }
+            else {
+                $("input[name=phonenumber]").val('لطفا موبایل خود را به درستی وارد کنید');
+                $("input[name=phonenumber]").addClass('warning');
+                return false;
+
+
+            }
+
+
+
+
+        }
+    </script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $( "#target").submit(function( event ) {
@@ -103,6 +146,7 @@
             }});
     });
     });
+
 
 </script>
 {/literal}

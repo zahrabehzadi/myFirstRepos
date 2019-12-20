@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-12-19 21:57:47
+/* Smarty version 3.1.34-dev-7, created on 2019-12-20 17:40:32
   from 'C:\xampp1\htdocs\mvcproject\app\templates\contactlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5dfbe44ba710a1_17293679',
+  'unifunc' => 'content_5dfcf9803d5cd1_81107122',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '94730adca86266ae3ec35e8f17d6a9f5d4dbbd49' => 
     array (
       0 => 'C:\\xampp1\\htdocs\\mvcproject\\app\\templates\\contactlist.tpl',
-      1 => 1576789066,
+      1 => 1576860031,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:searchresult.tpl' => 1,
   ),
 ),false)) {
-function content_5dfbe44ba710a1_17293679 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dfcf9803d5cd1_81107122 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
     <!-- Latest compiled and minified CSS -->
@@ -36,14 +36,18 @@ function content_5dfbe44ba710a1_17293679 (Smarty_Internal_Template $_smarty_tpl)
 >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title></title>
-
+<style>
+    .warning{
+        border-color: red;
+    }
+</style>
 </head>
 
 
 <nav class="navbar navbar-dark bg-primary">
     <a style="color: white;font-size:2em" class="navbar-brand">Contact list</a>
-    <form action="http://mvcproject.test/public/access/search" id="target" class="form-inline">
-        <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search" id="search_name">
+    <form action="http://mvcproject.test/public/access/search"  id="target" class="form-inline"  >
+        <input class="form-control mr-sm-2" type="search" name="name2" placeholder="Search" aria-label="Search" id="search_name">
         <button style="color:white;border-color: white" class="btn btn-outline-success my-2 my-sm-0" name="submit"  type="submit">Search</button>
     </form>
 </nav>
@@ -110,16 +114,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <div class="card-body">
 
-            <div class="alert alert-success">
-            </div>
-            <form action="http://mvcproject.test/public/access/addcontact" method="post">
+
+            <form action="http://mvcproject.test/public/access/addcontact" method="post"
+                  onSubmit="return check();">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input id="txt_name" type="text" name="name1" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="number">phone number</label>
-                    <input type="text" name="phonenumber" class="form-control">
+                    <input id="mobile" type="text" name="phonenumber" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-info">add contact</button>
@@ -131,10 +135,57 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html>
 
-
+    <?php echo '<script'; ?>
+ src="js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/cycle.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"><?php echo '</script'; ?>
+>
 <?php echo '<script'; ?>
  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"><?php echo '</script'; ?>
 >
+
+    <?php echo '<script'; ?>
+ type="text/javascript">
+
+        function check()
+        {
+
+            var mobile = $("input[name=phonenumber]").val();
+            var name=$("input[name=name1]").val();
+          
+
+            if(name==''){error=1;$("input[name=name1]").addClass('warning');return false}
+            else {
+                $("input[name=name1]").removeClass('warning');
+            }
+
+
+
+            var regexp2 = /^0{1}9{1}[0-9]{9}$/i;
+
+
+            if (regexp2.test(mobile) != false) {
+                $("input[name=phonenumber]").removeClass('warning');
+            }
+            else {
+                $("input[name=phonenumber]").val('لطفا موبایل خود را به درستی وارد کنید');
+                $("input[name=phonenumber]").addClass('warning');
+                return false;
+
+
+            }
+
+
+
+
+        }
+    <?php echo '</script'; ?>
+>
+
 <?php echo '<script'; ?>
  type="text/javascript">
     $(document).ready(function() {
@@ -149,6 +200,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             }});
     });
     });
+
 
 <?php echo '</script'; ?>
 >

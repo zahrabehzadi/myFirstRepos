@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-12-18 21:02:49
+/* Smarty version 3.1.34-dev-7, created on 2019-12-20 17:28:45
   from 'C:\xampp1\htdocs\mvcproject\app\templates\editcontact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5dfa85e95efa35_58586716',
+  'unifunc' => 'content_5dfcf6bd3b2d40_40098802',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd31c1afc1b39116eecf1f7fe86baff9eea4a766a' => 
     array (
       0 => 'C:\\xampp1\\htdocs\\mvcproject\\app\\templates\\editcontact.tpl',
-      1 => 1576699241,
+      1 => 1576859322,
       2 => 'file',
     ),
   ),
@@ -20,47 +20,39 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dfa85e95efa35_58586716 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dfcf6bd3b2d40_40098802 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
     <?php echo '<script'; ?>
- src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"><?php echo '</script'; ?>
+ src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"><?php echo '</script'; ?>
 >
+    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .warning{
+            border-color: red;
+        }
+    </style>
 </head>
 <div class="container">
     <div class="card mt-5">
         <div class="card-header">
-            <h2>Update person</h2>
+            <h2>Update Contact</h2>
         </div>
         <div class="card-body">
-            <?php echo '<?php ';?>
-if(!empty($message)): <?php echo '?>';?>
 
-            <div class="alert alert-success">
-                <?php echo '<?=';?>
- $message; <?php echo '?>';?>
-
-            </div>
-            <?php echo '<?php ';?>
-endif; <?php echo '?>';?>
-
-            <form action="http://mvcproject.test/public/access/editcontactfinal" method="post">
+            <form action="http://mvcproject.test/public/access/editcontactfinal" method="post" onSubmit="return check();">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input value="<?php echo $_smarty_tpl->tpl_vars['n']->value;?>
-" type="text" name="name" id="name" class="form-control">
+" type="text" name="name1" id="name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -68,11 +60,63 @@ endif; <?php echo '?>';?>
 " name="number" id="number" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-info">Update person</button>
+                    <button type="submit" class="btn btn-info">Update contact</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-</html><?php }
+
+<?php echo '<script'; ?>
+ src="js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="js/cycle.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"><?php echo '</script'; ?>
+>
+
+<?php echo '<script'; ?>
+ type="text/javascript">
+
+    function check()
+    {
+
+        var mobile = $("input[name=number]").val();
+        var name=$("input[name=name1]").val();
+
+
+        if(name==''){error=1;$("input[name=name1]").addClass('warning');return false}
+        else {
+            $("input[name=name1]").removeClass('warning');
+        }
+
+
+        var regexp2 = /^0{1}9{1}[0-9]{9}$/i;
+
+
+        if (regexp2.test(mobile) != false) {
+            $("input[name=number]").removeClass('warning');
+        }
+        else {
+            $("input[name=number]").val('لطفا موبایل خود را به درستی وارد کنید');
+            $("input[name=number]").addClass('warning');
+            return false;
+
+
+        }
+
+
+
+
+    }
+<?php echo '</script'; ?>
+>
+
+</html>
+<?php }
 }

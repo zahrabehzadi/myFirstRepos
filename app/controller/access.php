@@ -1,11 +1,9 @@
 <?php
 
 namespace app\controller;
-
 use app\models as modell;
-
+/*include __DIR__ . '/../../public/autoload.php';*/
 SESSION_START();
-
 class access
 {
 
@@ -19,13 +17,13 @@ class access
     {
         $smarty = "";
         $error = "";
+
         include(__DIR__ . '/../smartyheader.php');
 
-
+        require_once(__DIR__ . '/../models/user.php');
         if (isset($_POST['username']) && isset($_POST['password'])) {
 
-            require_once(__DIR__ . '/../models/user.php');
-            $object = new modell\user();
+            $object = new  modell\user();
 
             $result = $object->login($_POST['username'], $_POST['password']);
 
@@ -43,6 +41,7 @@ class access
             }
 
         }
+        /** @var TYPE_NAME $smarty */
         $smarty->assign("error", $error);
         $smarty->display('login.tpl');
 
@@ -82,12 +81,12 @@ class access
     {
         $smarty = "";
         include(__DIR__ . '/../smartyheader.php');
-        if (isset($_POST['name']) && isset($_POST['phonenumber'])) {
+        if (isset($_POST['name1']) && isset($_POST['phonenumber'])) {
 
             require_once(__DIR__ . '/../models/user.php');
             $object = new modell\addcontact();
 
-            $result = $object->add($_POST['name'], $_POST['phonenumber']);
+            $result = $object->add($_POST['name1'], $_POST['phonenumber']);
 
             if ($result) {
 
@@ -150,7 +149,7 @@ class access
 
         require_once(__DIR__ . '/../models/user.php');
         $object = new modell\editcontact();
-        $result = $object->edit($_POST['name'], $_POST['number']);
+        $result = $object->edit($_POST['name1'], $_POST['number']);
 
         if ($result) {
 

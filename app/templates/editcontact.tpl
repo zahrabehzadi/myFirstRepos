@@ -19,7 +19,7 @@
         </div>
         <div class="card-body">
 
-            <form action="http://mvcproject.test/public/access/editcontactfinal" method="post" onSubmit="return check();">
+            <form action="http://mvcproject.test/public/panell/editcontactfinal" method="post" onSubmit="return check();">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input value="{$n}" type="text" name="name1" id="name" class="form-control">

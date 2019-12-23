@@ -19,12 +19,12 @@
                 <td>{$it.name}</td>
                 <td>{$it.phonenumber}</td>
                 <td>
-                    <a href="http://mvcproject.test/public/access/editcontact?contid={$it.contactid}
+                    <a href="http://mvcproject.test/public/panell/editcontact?contid={$it.contactid}
                            "class="btn btn-info">Edit</a>
 
 
                     <a class='btn btn-danger'
-                       href="http://mvcproject.test/public/access/delete?contid={$it.contactid}"
+                       href="http://mvcproject.test/public/panell/delete?contid={$it.contactid}"
                        onclick="return confirm('مطمئنی میخوای این مخاطبو حذف کنی?')">Delete</a>
 
                 </td>

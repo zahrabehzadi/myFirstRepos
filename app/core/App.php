@@ -25,7 +25,7 @@ class app
             if (file_exists($filename))
             {
                 require_once($filename);
-                $className = '\app\controller\\' .$url[0]   ;
+                $className = '\app\controller\\' .$url[0];
 
                 if (class_exists($className))
                 {

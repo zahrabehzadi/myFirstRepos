@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-12-20 17:28:45
+/* Smarty version 3.1.34-dev-7, created on 2019-12-23 22:28:36
   from 'C:\xampp1\htdocs\mvcproject\app\templates\editcontact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5dfcf6bd3b2d40_40098802',
+  'unifunc' => 'content_5e013184560dd7_15000726',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd31c1afc1b39116eecf1f7fe86baff9eea4a766a' => 
     array (
       0 => 'C:\\xampp1\\htdocs\\mvcproject\\app\\templates\\editcontact.tpl',
-      1 => 1576859322,
+      1 => 1577136091,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dfcf6bd3b2d40_40098802 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e013184560dd7_15000726 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 
@@ -48,7 +48,7 @@ function content_5dfcf6bd3b2d40_40098802 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <div class="card-body">
 
-            <form action="http://mvcproject.test/public/access/editcontactfinal" method="post" onSubmit="return check();">
+            <form action="http://mvcproject.test/public/panell/editcontactfinal" method="post" onSubmit="return check();">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input value="<?php echo $_smarty_tpl->tpl_vars['n']->value;?>
